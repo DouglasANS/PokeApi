@@ -1,40 +1,78 @@
 import react from "react";
-import { Container, LogoPoke, StatusBar, NumberPoke, TextNumberPoke, ImgPokemon, TypePokemon, TypePokemonDiv, TypeNamePokemon,TypeImgPokemon } from './styles'
-
+import { Container, LogoPoke,DivArrowUp, StatusBar,InfoPoke, InfoPokeLine, ButtonArrowUp, InfoPokeName, InfoPokeValue, InfoPokeDiv, NumberPoke, NamePokemon, TextNumberPoke, ImgPokemon, TypePokemon, TypePokemonDiv, TypeNamePokemon,TypeImgPokemon } from './styles'
+import { SetTypeColor } from "../../utils/SetTypeColor";
+import { SetTypeImage } from "../../utils/SetTypeImage";
 class CardPokeComponent extends react.Component {
 
-    
-    teste = () => {
-        //var asd = document.getElementById('teste')  
-       // console.log(asd.innerHTML) 
-        //asd.style.cssText = 'height: 80%;';
+    state = { CardClick: false, StatusBarHeight: "55%" };
+
+
+    statusPoke = () =>{
+        this.setState({StatusBarHeight: "97.5%"})
     }
+    
     
     render(){
         
-    
+    const cardBackgroundColor = `${SetTypeColor(this.props.types[0].type.name)}90`;
+        
+    //style={{marginRight: spacing + 'em'}}
+    //style={{background: '#ffffff76'}} onMouseOut={this.cardEfectOut}
         return(
-            <div >
-                <Container onMouseEnter={this.teste} >
-                
-                    <NumberPoke>
-                        <TextNumberPoke>#001</TextNumberPoke>
+            <>
+                <Container cardBackgroundColor={cardBackgroundColor} >
+                    <LogoPoke>
+                    
+                    </LogoPoke>
+                    <NumberPoke >
+                        <TextNumberPoke>#{this.props.id_Poke}</TextNumberPoke>
                     </NumberPoke>
-                    <StatusBar height="80%">
-                        <ImgPokemon src="../001.png" alt="imgPokemon"></ImgPokemon>
-                        <TypePokemonDiv>
-                            <TypePokemon>
-                                <TypeNamePokemon>Grass</TypeNamePokemon>
-                                <TypeImgPokemon src="../grass.png" alt="imgPokemon"></TypeImgPokemon>
-                            </TypePokemon>
-                        </TypePokemonDiv>
+                    <div></div>
+                    <StatusBar height={this.state.StatusBarHeight}>
+                        <ImgPokemon  src={this.props.imgpokemon} alt="imgPokemon"></ImgPokemon>
+                        
+                            <DivArrowUp>
+                                <ButtonArrowUp onClick={this.statusPoke}></ButtonArrowUp>
+                            </DivArrowUp>
+                            <NamePokemon>{this.props.namePokemon}</NamePokemon>
+                            <TypePokemonDiv >    
+                            
+                            {this.props.types.map((val)=>{
+                                return(
+                                    <div>
+                                        <TypePokemon BackgroundTyprColor={SetTypeColor(val.type.name)} >
+                                            <TypeNamePokemon >{val.type.name}</TypeNamePokemon>
+                                            <TypeImgPokemon  src={SetTypeImage(val.type.name)} alt="imgPokemon"></TypeImgPokemon>
+                                        </TypePokemon>
+                                    </div>
+                                )
+                            })
+
+                            }
+                            </TypePokemonDiv>
+                            <InfoPokeDiv >
+                                <InfoPoke>
+                                    <InfoPokeName>Experience:</InfoPokeName>
+                                    <InfoPokeValue>{this.props.experience}</InfoPokeValue>
+                                    
+                                </InfoPoke>
+                                <InfoPokeLine></InfoPokeLine>
+                                <InfoPoke>
+                                    <InfoPokeName>Height:</InfoPokeName>
+                                    <InfoPokeValue>{this.props.height}</InfoPokeValue>
+                                </InfoPoke>
+                                <InfoPokeLine></InfoPokeLine>
+                                <InfoPoke>
+                                    <InfoPokeName>Weight:</InfoPokeName>
+                                    <InfoPokeValue>{this.props.weight}</InfoPokeValue>
+                                </InfoPoke>
+
+                            </InfoPokeDiv>
 
                     </StatusBar>                    
                 </Container>
-
-                <LogoPoke>
-                </LogoPoke>
-            </div>
+                
+            </>
         )
     }
 }

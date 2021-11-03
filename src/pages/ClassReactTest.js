@@ -21,8 +21,6 @@ class ClassReactTest extends Component{
     }
     
     render(){
-        const asd = 2
-        let asda = 123
    
         return(
             <>
