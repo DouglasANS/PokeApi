@@ -27,6 +27,7 @@ export const NumberPoke = styled.div`
     text-align: center;
     position: absolute;
     z-index: 10;
+    
 ` 
 export const TextNumberPoke = styled.h3`
     margin-top: 3px;
@@ -38,47 +39,46 @@ export const StatusBar = styled.div`
     background: #ffffff76;
     border-radius: 16px;
     margin: 0 5px 5px 5px;
-
-    transition-property: height;
-    transition-duration: 1s;
+    transition: 0.3s linear;
+    
 
     z-index: 1;
    
 `
 export const ImgPokemon = styled.img`
-    height: 100px;
-    width: 100px;
+    height: ${props => props.ImgPoke.height};
+    width: ${props => props.ImgPoke.width};
     z-index: 1;
     position: absolute;
     bottom: 170px;
-    left: 60px;
+    transition: 0.5s linear;
+    left: ${props => props.ImgPoke.left};
 `
-
 export const TypePokemonDiv = styled.div`
-    display: flex;
+    display: ${props => props.TypeDiv};
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition:  none ;
 `
 export const TypePokemon = styled.div`
     height: 35px;
     width: 90px;
     border-radius: 2px;
-    background-color: ${props => props.BackgroundTyprColor};;
+    background-color: ${props => props.BackgroundTyprColor};
     display: flex;
     flex-direction: row;
-    margin: 5px;
-    //justify-content: center;
-    //align-items: center;
-    
+    margin: 5px;    
 `
-export const NamePokemon = styled.h2`
+export const TitlePokemon = styled.h2`
     text-align: center;
     width: 100%;
     font-size: 18px;
     font-weight: 500;
     font-family: 'Orienta', sans-serif;
     text-transform: capitalize;
+    transition: 0.1s linear;
+    margin-top: ${props => props.TitlePoke};
 `
 export const TypeNamePokemon = styled.h2`
     margin: auto;
