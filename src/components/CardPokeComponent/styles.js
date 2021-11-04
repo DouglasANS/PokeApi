@@ -6,27 +6,30 @@ export const Container = styled.div`
     width: 220px;
     border-radius: 16px;
     position: relative;
-    margin: 20px 0 0 20px;
+    margin: 20px 10px 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 8px  #00000070;
+    box-shadow: 1px 1px 4px  #00000070;
     &:hover{
-        box-shadow: 1px 1px 8px  black;
+        outline:1px solid #00000050;
     }
   //background: url('../assets/simbolpoke.webp'); #C233A5
 
 `
 export const NumberPoke = styled.div`
+    display: ${props => props.IdPoke.display};
     margin-top: 10px;
     height: 25px;
     width: 60px;
-    background: #fff;
+    background: ${props => props.BackgroundTypeColor};
     border-radius: 16px;
     text-align: center;
     position: absolute;
     z-index: 10;
+    transition: display 2s ;
+    box-shadow: 0.5px 0.5px 3px #333;
     
 ` 
 export const TextNumberPoke = styled.h3`
@@ -39,11 +42,20 @@ export const StatusBar = styled.div`
     background: #ffffff76;
     border-radius: 16px;
     margin: 0 5px 5px 5px;
-    transition: 0.3s linear;
-    
+    transition: 0.5s linear ;
 
     z-index: 1;
    
+`
+export const TitlePokemon = styled.h2`
+    transition: ${props => props.TitlePoke.transition} ;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Orienta', sans-serif;
+    text-transform: capitalize;
+    margin-top: ${props => props.TitlePoke.mtop};
 `
 export const ImgPokemon = styled.img`
     height: ${props => props.ImgPoke.height};
@@ -59,33 +71,23 @@ export const TypePokemonDiv = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    transition:  none ;
 `
 export const TypePokemon = styled.div`
     height: 35px;
     width: 90px;
     border-radius: 2px;
-    background-color: ${props => props.BackgroundTyprColor};
+    background-color: ${props => props.BackgroundTypeColor};
     display: flex;
     flex-direction: row;
     margin: 5px;    
 `
-export const TitlePokemon = styled.h2`
-    text-align: center;
-    width: 100%;
-    font-size: 18px;
-    font-weight: 500;
-    font-family: 'Orienta', sans-serif;
-    text-transform: capitalize;
-    transition: 0.1s linear;
-    margin-top: ${props => props.TitlePoke};
-`
+
 export const TypeNamePokemon = styled.h2`
     margin: auto;
     text-align: center;
     width: 60%;  
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     font-family: 'Orienta', sans-serif;
     text-transform: capitalize;
 `
@@ -123,6 +125,7 @@ export const ButtonArrowUp = styled.button`
     background-size: cover;
     background-repeat: no-repeat;
     border: none;
+    transform: ${props => props.ButtonArrow.transform};
     
 `
 export const InfoPokeDiv = styled.div`

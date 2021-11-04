@@ -18,16 +18,26 @@ class CardPokeComponent extends react.Component {
             TableTitleTwo: "Height",
             TableTitleThree: "width",
             TableInfoOne: `${this.props.experience}`,
-            TableInfoTwo: `${this.props.height}`,
-            TableInfoThree: `${this.props.weight}`,
+            TableInfoTwo: `${(parseFloat(this.props.height)/10)}m`,
+            TableInfoThree: `${(parseFloat(this.props.weight)/10)}kg`,
         },
         TypeDiv: "flex", 
-        TitlePoke: "0",
+        TitlePoke: { 
+            mtop: "0px", 
+            transition: "0.5s linear"
+        },
+        ButtonArrow: { 
+            transform: "rotate(0deg)", 
+        },
+        IdPoke: { 
+            display: "inline", 
+        },
     
     };
 
 
     statusPoke = () =>{
+        console.log(this.state.TitlePoke.mtop)
         if(this.state.CardClick === false){
             this.setState({
                 CardClick: true, 
@@ -46,7 +56,16 @@ class CardPokeComponent extends react.Component {
                     TableInfoThree: `${this.props.defense}`,
                 },
                 TypeDiv: "none",
-                TitlePoke: "190px",
+                TitlePoke: { 
+                    mtop: "190px", 
+                    transition: "0.5s linear"
+                },
+                ButtonArrow: { 
+                    transform: "rotate(180deg)", 
+                },
+                IdPoke: { 
+                    display: "none", 
+                },
             })
         }
         
@@ -69,7 +88,16 @@ class CardPokeComponent extends react.Component {
                     TableInfoThree: `${this.props.weight}`,
                 },
                 TypeDiv: "flex",
-                TitlePoke: "0",
+                TitlePoke: { 
+                    mtop: "0px", 
+                    transition: "none",
+                },
+                ButtonArrow: { 
+                    transform: "rotate(0deg)", 
+                },
+                IdPoke: { 
+                    display: "inline", 
+                },
             })
         }
         
@@ -79,6 +107,7 @@ class CardPokeComponent extends react.Component {
     render(){
         
     const cardBackgroundColor = `${SetTypeColor(this.props.types[0].type.name)}90`;
+    const IdcardBackgroundColor = `${SetTypeColor(this.props.types[0].type.name)}80`;
         
     //style={{marginRight: spacing + 'em'}}
     //style={{background: '#ffffff76'}} onMouseOut={this.cardEfectOut}
@@ -88,7 +117,7 @@ class CardPokeComponent extends react.Component {
                     <LogoPoke>
                     
                     </LogoPoke>
-                    <NumberPoke >
+                    <NumberPoke BackgroundTypeColor={IdcardBackgroundColor} IdPoke={this.state.IdPoke} >
                         <TextNumberPoke>#{this.props.id_Poke}</TextNumberPoke>
                     </NumberPoke>
                     <div></div>
@@ -96,7 +125,7 @@ class CardPokeComponent extends react.Component {
                         <ImgPokemon ImgPoke={this.state.ImgPoke} src={this.props.imgpokemon} alt="imgPokemon"></ImgPokemon>
                         
                             <DivArrowUp>
-                                <ButtonArrowUp onClick={this.statusPoke}></ButtonArrowUp>
+                                <ButtonArrowUp ButtonArrow={this.state.ButtonArrow} onClick={this.statusPoke}></ButtonArrowUp>
                             </DivArrowUp>
                             <TitlePokemon TitlePoke={this.state.TitlePoke}>{this.props.namePokemon}</TitlePokemon>
                             <TypePokemonDiv TypeDiv={this.state.TypeDiv} >    
@@ -104,7 +133,7 @@ class CardPokeComponent extends react.Component {
                             {this.props.types.map((val)=>{
                                 return(
                                     <div key={val.type.name}>
-                                        <TypePokemon BackgroundTyprColor={SetTypeColor(val.type.name)} >
+                                        <TypePokemon BackgroundTypeColor={SetTypeColor(val.type.name)} >
                                             <TypeNamePokemon >{val.type.name}</TypeNamePokemon>
                                             <TypeImgPokemon  src={SetTypeImage(val.type.name)} alt="imgPokemon"></TypeImgPokemon>
                                         </TypePokemon>

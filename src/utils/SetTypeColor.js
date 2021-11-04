@@ -3,19 +3,19 @@ export function SetTypeColor(type) {
       case 'normal':
         return '#A8A77A'
       case 'fire':
-        return '#EE8130'
+        return '#EF8F49'
       case 'water':
-        return '#6390F0'
+        return '#70BAFF'
       case 'electric':
-        return '#F7D02C'
+        return '#DEE217'
       case 'grass':
-        return '#7AC74C'
+        return '#65DA52'
       case 'ice':
-        return '#96D9D6'
+        return '#4EEDE3'
       case 'fighting':
-        return '#C22E28'
+        return '#D74C47'
       case 'poison':
-        return '#A33EA1'
+        return '#DA52BE'
       case 'ground':
         return '#E2BF65'
       case 'flying':
@@ -29,13 +29,13 @@ export function SetTypeColor(type) {
       case 'ghost':
         return '#735797'
       case 'dragon':
-        return '#6F35FC'
+        return '#8F61FF'
       case 'dark':
         return '#705746'
       case 'steel':
         return '#B7B7CE'
       case 'fairy':
-        return '#D685AD'
+        return '#EE7AAB'
       default:
         return '#000000'
     }

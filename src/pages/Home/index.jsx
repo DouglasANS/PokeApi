@@ -7,21 +7,25 @@ class Home extends react.Component{
 
     state = { allPokemons: [] };
 
-    
-
     dataPokemons = async () => {
         const { data } = await axios.get('https://pokeapi.co/api/v2/generation/1')
-        let pokes = [];
+        let pokemons = [];
 
         const promisseMap = data.pokemon_species.map(async pokemon => {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-            pokes.push(res.data);
+            pokemons.push(res.data);
         });
-        console.log('1', this.state.allPokemons)
         await Promise.all(promisseMap);
-        this.setState({allPokemons: pokes})
-        
-        
+
+        this.setState({allPokemons: pokemons.sort(function (a,b) {
+            if (a.id > b.id) {
+              return 1
+            }
+            if (a.id < b.id) {
+              return -1
+            }
+            return 0
+          })})    
     }
 
     componentWillMount(){
@@ -39,7 +43,7 @@ class Home extends react.Component{
             <>
             <button onClick={this.teste}>ASDASDA</button>
             <Container>
-                <div style={{display: "flex", flexWrap: "wrap"}}>
+                <div style={{display: "flex", flexWrap: "wrap", justifyContent:"space-around", background: "#ebebeb"}}>
                 { this.state.allPokemons.map((val)=>{
                     return(
                         <div key={val.id}>
