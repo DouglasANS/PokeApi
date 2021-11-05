@@ -1,4 +1,4 @@
-import react, { useEffect } from "react";
+import react from "react";
 import CardPokeComponent from "../../components/CardPokeComponent"
 import { Container } from './styles'
 import axios from "axios";
@@ -30,18 +30,15 @@ class Home extends react.Component{
 
     componentWillMount(){
         this.dataPokemons()
+
     }
 
+    
 
-    teste = () => {
-        console.log(this.state.allPokemons)
-        
-    }
 
     render(){
         return(
             <>
-            <button onClick={this.teste}>ASDASDA</button>
             <Container>
                 <div style={{display: "flex", flexWrap: "wrap", justifyContent:"space-around", background: "#ebebeb"}}>
                 { this.state.allPokemons.map((val)=>{
@@ -65,6 +62,7 @@ class Home extends react.Component{
 
                 }
                 </div>
+                <a href="#" ><button>Go top</button></a>
             </Container>
             </>
         )

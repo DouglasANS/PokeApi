@@ -5,6 +5,7 @@ import { SetTypeImage } from "../../utils/SetTypeImage";
 class CardPokeComponent extends react.Component {
 
     state = { 
+        idPokemon: this.props.id_Poke,
         CardClick: false, 
         StatusBarHeight: "55%",
         ImgPoke: { 
@@ -37,7 +38,6 @@ class CardPokeComponent extends react.Component {
 
 
     statusPoke = () =>{
-        console.log(this.state.TitlePoke.mtop)
         if(this.state.CardClick === false){
             this.setState({
                 CardClick: true, 
@@ -102,12 +102,25 @@ class CardPokeComponent extends react.Component {
         }
         
     }
+
+    idPokemonStyle = (id) => {
+        if(id <= 9){
+          return `00${id}`
+        }
+        if(id <= 99){
+            return `0${id}`
+          }else{
+            return id
+          }
+    }
     
     
     render(){
         
     const cardBackgroundColor = `${SetTypeColor(this.props.types[0].type.name)}90`;
     const IdcardBackgroundColor = `${SetTypeColor(this.props.types[0].type.name)}80`;
+
+    const resultID = this.idPokemonStyle(this.props.id_Poke)
         
     //style={{marginRight: spacing + 'em'}}
     //style={{background: '#ffffff76'}} onMouseOut={this.cardEfectOut}
@@ -118,7 +131,7 @@ class CardPokeComponent extends react.Component {
                     
                     </LogoPoke>
                     <NumberPoke BackgroundTypeColor={IdcardBackgroundColor} IdPoke={this.state.IdPoke} >
-                        <TextNumberPoke>#{this.props.id_Poke}</TextNumberPoke>
+                        <TextNumberPoke>#{resultID}</TextNumberPoke>
                     </NumberPoke>
                     <div></div>
                     <StatusBar height={this.state.StatusBarHeight}>

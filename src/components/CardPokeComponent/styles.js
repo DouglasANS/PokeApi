@@ -11,7 +11,8 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 4px  #00000070;
+    box-shadow: 0px 4px 7px #63636381;
+    margin: 0 1% 20px;
     &:hover{
         outline:1px solid #00000050;
     }
@@ -30,6 +31,9 @@ export const NumberPoke = styled.div`
     z-index: 10;
     transition: display 2s ;
     box-shadow: 0.5px 0.5px 3px #333;
+    font-size: 13px;
+    font-weight: 100;
+    font-family: 'Orienta', sans-serif;
     
 ` 
 export const TextNumberPoke = styled.h3`
@@ -153,6 +157,11 @@ export const InfoPokeValue = styled.h2`
 
 `
 export const InfoPokeLine = styled.div`
+    border-bottom: solid 1px #00000025;
+
+`
+
+export const GoTop = styled.a`
     border-bottom: solid 1px #00000025;
 
 `
