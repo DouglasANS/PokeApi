@@ -1,6 +1,6 @@
 import react from "react";
 import CardPokeComponent from "../../components/CardPokeComponent"
-import { Container } from './styles'
+import { Container, PokeContainer } from './styles'
 import axios from "axios";
 
 class Home extends react.Component{
@@ -33,36 +33,31 @@ class Home extends react.Component{
 
     }
 
-    
-
-
     render(){
         return(
             <>
             <Container>
-                <div style={{display: "flex", flexWrap: "wrap", justifyContent:"space-around", background: "#ebebeb"}}>
-                { this.state.allPokemons.map((val)=>{
-                    return(
-                        <div key={val.id}>
-                            <CardPokeComponent 
-                            id_Poke={val.id}
-                            namePokemon={val.species.name} 
-                            imgpokemon={val.sprites.other["official-artwork"].front_default}
-                            types={val.types}
-                            experience={val.base_experience}
-                            height={val.height}
-                            weight={val.weight}
-                            hp={val.stats[0].base_stat}
-                            attack={val.stats[1].base_stat}
-                            defense={val.stats[2].base_stat}
-                            />
-                        </div>
-                    )
-                })
-
-                }
-                </div>
-                <a href="#" ><button>Go top</button></a>
+                <PokeContainer>
+                    { this.state.allPokemons.map((val)=>{
+                        return(
+                            <div key={val.id}  >
+                                <CardPokeComponent 
+                                id_Poke={val.id}
+                                namePokemon={val.species.name} 
+                                imgpokemon={val.sprites.other["official-artwork"].front_default}
+                                types={val.types}
+                                experience={val.base_experience}
+                                height={val.height}
+                                weight={val.weight}
+                                hp={val.stats[0].base_stat}
+                                attack={val.stats[1].base_stat}
+                                defense={val.stats[2].base_stat}
+                                />
+                            </div>
+                        )
+                    })
+                    }
+                </PokeContainer>
             </Container>
             </>
         )

@@ -6,18 +6,16 @@ export const Container = styled.div`
     width: 220px;
     border-radius: 16px;
     position: relative;
-    margin: 20px 10px 0 10px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 4px 7px #63636381;
-    margin: 0 1% 20px;
+    
     &:hover{
         outline:1px solid #00000050;
     }
-  //background: url('../assets/simbolpoke.webp'); #C233A5
-
 `
 export const NumberPoke = styled.div`
     display: ${props => props.IdPoke.display};
@@ -47,7 +45,6 @@ export const StatusBar = styled.div`
     border-radius: 16px;
     margin: 0 5px 5px 5px;
     transition: 0.5s linear ;
-
     z-index: 1;
    
 `
@@ -101,8 +98,6 @@ export const TypeImgPokemon = styled.img`
     width: 40%;
     height: 100%;
 `
-
-
 export const LogoPoke = styled.div`
     height: 200px;
     width: 200px;
@@ -158,14 +153,8 @@ export const InfoPokeValue = styled.h2`
 `
 export const InfoPokeLine = styled.div`
     border-bottom: solid 1px #00000025;
-
 `
-
 export const GoTop = styled.a`
     border-bottom: solid 1px #00000025;
 
-`
-
-
-
-;
+`;
