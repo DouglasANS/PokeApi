@@ -3,7 +3,7 @@
 </h1>
 
 # About the project
-O projeto consite na manipulação do PokeApi https://pokeapi.co/ na criação de cards com informações dos pokemons da primeira geração ordenados pelo id.
+O projeto consiste na manipulação do PokeApi https://pokeapi.co/ na criação de cards com informações dos pokémons da primeira geração ordenados pelo id.
 
 # Technologies
 - ReactJs in class
