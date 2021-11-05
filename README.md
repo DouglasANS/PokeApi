@@ -2,11 +2,26 @@
 	# PokeApi Project
 </h1>
 
+# About the project
+O projeto consite na manipulação do PokeApi https://pokeapi.co/ na criação de cards com informações dos pokemons da primeira geração ordenados pelo id.
+
+# Technologies
+- ReactJs in class
+- React Router DOM
+- Axios
+- Styled-components
+
+#
+
+
 <h1 align="center">
-	<img alt="pokeapi" src="./public/pokeapi.png" width="100px" />
+	<img alt="pokeapi" src="./public/pokeapi.png" width="900px" />
 </h1>
 <h1 align="center">
-	<img alt="pokeapiclick" src="./public/pokeapiclick.png" width="600px" />
+	Effect button
+</h1>
+<h1 align="center">
+	<img alt="pokeapiclick" src="./public/pokeapiclick.png" width="300px" />
 </h1>
 
 Site Project - https://poke-api-six.vercel.app/
